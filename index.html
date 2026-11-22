@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#111019">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#111019">
 <title>A birthday story · Mr Mohamed Abdelsalam</title>
 <style>
 :root{--bg:#111019;--cream:#f6f2ed;--muted:#bab2c4;--accent:#cfb7ff;--hue:270}*{box-sizing:border-box}html{background:var(--bg);scrollbar-color:#52455f #111019}body{margin:0;color:var(--cream);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}::selection{background:#cfb7ff;color:#21182b}button{font:inherit}button:focus-visible{outline:3px solid #f6f2ed;outline-offset:7px}.ambient{position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 76% 45%,hsl(var(--hue) 26% 23% / .5),transparent 58%),radial-gradient(ellipse at 12% 90%,#29233344,transparent 55%);transition:background 1s}.grain{position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:15;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23g)' d='M0 0h160v160H0z'/%3E%3C/svg%3E")}
@@ -48,6 +48,99 @@ html.cinematic .story{height:calc(100svh + 300svh)}html.cinematic .stage{positio
 @media(max-width:700px){.live-motif{width:67px;height:67px;right:-13px;top:-22px}.s2 .live-motif{right:-17px;top:-18px}.s5 .live-motif{width:61px;height:61px;right:-14px;top:-22px}.mote{left:var(--mobile-x)}.birthday-balloons svg{width:30px;height:95px}.birthday-balloons svg:nth-child(2){width:24px}.birthday-balloons svg:nth-child(3){width:20px}}
 @media(prefers-reduced-motion:reduce){.atmosphere,.live-motif,.glass-light,.birthday-balloons{display:none}.ambient:before,.ambient:after{animation:none}.glass,.person,.orbital{animation:none}.person{transform:translateX(-50%)}.wish-button:after{display:none}}
 
+
+/* Capability-aware layouts. Device hints never override the space actually available. */
+:root{--view-height:100svh;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px)}
+html.cinematic .story{height:calc(var(--view-height) * 4)}html.cinematic .stage{height:var(--view-height)}
+.topline{top:calc(25px + var(--safe-top));left:max(5.5%,calc(18px + var(--safe-left)));right:max(5.5%,calc(18px + var(--safe-right)))}
+.chapter{bottom:calc(25px + var(--safe-bottom))}.scroll-cue{bottom:calc(27px + var(--safe-bottom))}
+html[data-input="touch"] .wish-button{min-height:48px;min-width:155px;font-size:13px}
+html[data-input="touch"] .glass{--tilt-x:0deg!important;--tilt-y:0deg!important}
+html[data-input="touch"] .wish-button:hover{transform:none}
+html[data-layout="portrait-tablet"] .scene{padding:100px 8% 85px}
+html[data-layout="portrait-tablet"] .composition{display:flex;flex-direction:column;width:min(670px,100%);gap:36px}
+html[data-layout="portrait-tablet"] .copy{text-align:center;width:100%}
+html[data-layout="portrait-tablet"] .eyebrow{justify-content:center;font-size:10px;margin-bottom:23px}
+html[data-layout="portrait-tablet"] h1{font-size:clamp(100px,13vw,140px);letter-spacing:-6px;margin-bottom:23px}
+html[data-layout="portrait-tablet"] h2{font-size:clamp(65px,8.5vw,91px);letter-spacing:-3px;margin-bottom:22px}
+html[data-layout="portrait-tablet"] .name{font-size:25px}
+html[data-layout="portrait-tablet"] .support{font-size:17px;max-width:480px;margin-inline:auto;line-height:1.8}
+html[data-layout="portrait-tablet"] .art{width:min(460px,77%);height:clamp(330px,calc(var(--view-height) * .37),465px);flex-shrink:0}
+html[data-layout="portrait-tablet"] .scene .person{height:100%;width:auto!important}
+html[data-layout="portrait-tablet"] .s1 .person{width:133%;left:48%}
+html[data-layout="portrait-tablet"] .s2 .person{width:132%;left:53%}
+html[data-layout="portrait-tablet"] .s3 .person{width:131%;left:43%}
+html[data-layout="portrait-tablet"] .s4 .person{width:132%;left:43%}
+html[data-layout="portrait-tablet"] .s5 h2{font-size:60px;margin-bottom:22px}
+html[data-layout="portrait-tablet"] .s5 .support{font-size:16px;max-width:510px}
+html[data-layout="portrait-tablet"] .signature{justify-content:center;margin-top:20px;font-size:13px}
+html[data-layout="portrait-tablet"] .s5 .composition{gap:30px}
+html[data-layout="portrait-tablet"] .s5 .art{height:clamp(285px,calc(var(--view-height) * .29),380px);width:420px;max-width:78%}
+html[data-layout="portrait-tablet"] .s5 .person{height:100%;width:auto;left:42%}
+html[data-layout="portrait-tablet"] .s6 .composition{gap:26px}
+html[data-layout="portrait-tablet"] .s6 .art{height:clamp(255px,calc(var(--view-height) * .29),370px);width:430px;max-width:78%;order:-1}
+html[data-layout="portrait-tablet"] .s6 h2{font-size:66px;margin-bottom:18px}
+html[data-layout="portrait-tablet"] .s6 .person{height:auto;width:120%;left:50%}
+html[data-layout="portrait-tablet"] .cake-shelf{display:none}
+html[data-layout="portrait-tablet"] .mobile-candles{display:block;position:absolute;bottom:12px;left:15px;width:124px;height:110px;transform:scale(.7);transform-origin:left bottom;z-index:3}
+html[data-layout="portrait-tablet"] .mobile-candles .cake{left:12px;bottom:0}
+html[data-layout="portrait-tablet"] .credit{margin-top:23px;font-size:12px}
+html[data-layout="portrait-tablet"] .credit:before{margin:0 auto 13px}
+html[data-layout="portrait-tablet"] .wish-status{margin-inline:auto;font-size:12px}
+html[data-layout="portrait-tablet"] .wish-button{padding:17px 28px}
+/* Small tablets, split-screen iPads, and smaller laptop windows. */
+html[data-layout="split"] .composition{display:grid;grid-template-columns:1.05fr 1fr;gap:5%;width:min(1000px,100%)}
+html[data-layout="split"] .copy{text-align:left}
+html[data-layout="split"] h1{font-size:clamp(77px,10vw,105px);letter-spacing:-5px}
+html[data-layout="split"] h2{font-size:clamp(47px,6.6vw,69px);letter-spacing:-2.5px}
+html[data-layout="split"] .art{width:100%;height:clamp(280px,41vw,420px)}
+html[data-layout="split"] .support{font-size:14px;max-width:340px}
+html[data-layout="split"] .s5 h2{font-size:43px}
+html[data-layout="split"] .s5 .support{font-size:13px;line-height:1.8}
+html[data-layout="split"] .s6 h2{font-size:52px}
+/* A phone held sideways gets a real two-column composition, not a cropped portrait page. */
+html[data-layout="landscape"] .scene,html.cinematic[data-layout="landscape"] .scene{padding:56px max(6%,calc(18px + var(--safe-left))) 45px}
+html[data-layout="landscape"] .composition{display:grid;grid-template-columns:1.18fr 1fr;gap:6%;width:min(1000px,100%)}
+html[data-layout="landscape"] .copy{text-align:left}
+html[data-layout="landscape"] .eyebrow{justify-content:flex-start;font-size:7px;letter-spacing:1.6px;margin-bottom:11px}
+html[data-layout="landscape"] h1{font-size:clamp(48px,calc(var(--view-height) * .195),86px);letter-spacing:-3.5px;line-height:.94;margin-bottom:14px}
+html[data-layout="landscape"] h2{font-size:clamp(34px,calc(var(--view-height) * .125),58px);letter-spacing:-1.8px;margin-bottom:13px}
+html[data-layout="landscape"] .name{font-size:16px;margin-bottom:7px}
+html[data-layout="landscape"] .support{font-size:12px;line-height:1.65;max-width:365px;margin:0}
+html[data-layout="landscape"] .art,html[data-layout="landscape"] .s5 .art,html[data-layout="landscape"] .s6 .art{width:100%;height:calc(var(--view-height) - 115px);max-height:350px;order:initial}
+html[data-layout="landscape"] .person{height:100%;width:auto;left:50%}
+html[data-layout="landscape"] .s1 .person{left:48%}
+html[data-layout="landscape"] .s3 .person,html[data-layout="landscape"] .s4 .person{left:43%}
+html[data-layout="landscape"] .s5 .person{left:42%}
+html[data-layout="landscape"] .s6 .person{left:50%;height:95%}
+html[data-layout="landscape"] .glass{border-radius:100px 100px 20px 20px}
+html[data-layout="landscape"] .s5 .glass{border-radius:24px}
+html[data-layout="landscape"] .s5 h2{font-size:33px;margin-bottom:10px}
+html[data-layout="landscape"] .s5 .support{font-size:11px;line-height:1.6}
+html[data-layout="landscape"] .s5 .support p{margin-bottom:9px}
+html[data-layout="landscape"] .signature{justify-content:flex-start;font-size:10px;margin-top:12px}
+html[data-layout="landscape"] .s6 h2{font-size:37px;margin-bottom:12px}
+html[data-layout="landscape"] .s6 .eyebrow{margin-bottom:9px}
+html[data-layout="landscape"] .cake-shelf{display:none}
+html[data-layout="landscape"] .s6 .wish-wrap{margin-top:13px}
+html[data-layout="landscape"] .wish-button{padding:10px 20px;min-height:44px;font-size:11px;min-width:140px}
+html[data-layout="landscape"] .wish-status{font-size:10px;margin:7px 0 0}
+html[data-layout="landscape"] .credit{margin-top:13px;font-size:9px}
+html[data-layout="landscape"] .credit:before{margin:0 0 8px}
+html[data-layout="landscape"] .mobile-candles{display:block;position:absolute;bottom:9px;left:10px;width:124px;height:110px;transform:scale(.5);transform-origin:left bottom;z-index:3}
+html[data-layout="landscape"] .topline{top:calc(13px + var(--safe-top));font-size:8px}
+html[data-layout="landscape"] .topline .dedication{font-size:7px}
+html[data-layout="landscape"] .brand span{font-size:17px}
+html[data-layout="landscape"] .chapter{bottom:calc(14px + var(--safe-bottom));font-size:7px}
+html[data-layout="landscape"] .scroll-cue{bottom:calc(13px + var(--safe-bottom));font-size:7px;line-height:1.3}
+html[data-layout="landscape"] .scroll-cue br,html[data-layout="landscape"] .scroll-line{display:none}
+html[data-layout="landscape"] .scroll-cue>span{margin-left:10px;margin-top:0!important;font-size:7px}
+html[data-layout="landscape"] .live-motif,html[data-layout="landscape"] .s5 .live-motif{width:58px;height:58px;top:-15px;right:-12px}
+html[data-motion="light"] .mote:nth-child(n+8){display:none}
+html[data-motion="light"] .glass{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+html[data-motion="light"] .grain{opacity:.035}
+@media(min-width:1700px) and (min-height:950px){html[data-layout="wide"] .composition{width:min(1400px,86%);gap:8%}html[data-layout="wide"] h1{font-size:145px}html[data-layout="wide"] h2{font-size:100px}html[data-layout="wide"] .s5 h2{font-size:76px}html[data-layout="wide"] .support{font-size:18px;max-width:450px}html[data-layout="wide"] .art{height:min(600px,50vh)}}
+
 </style>
 </head>
 <body>
@@ -66,9 +159,31 @@ html.cinematic .story{height:calc(100svh + 300svh)}html.cinematic .stage{positio
 <script>
 (()=>{'use strict';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const root=document.documentElement;
+function detectExperience(){
+ const ua=navigator.userAgent||'',touch=navigator.maxTouchPoints||0;
+ const coarse=matchMedia('(pointer: coarse)').matches;
+ const ipad=/iPad/i.test(ua)||(/Macintosh|MacIntel/i.test(ua+' '+navigator.platform)&&touch>1);
+ const tabletHint=ipad||/Tablet|Silk|PlayBook/i.test(ua)||(/Android/i.test(ua)&&!/Mobile/i.test(ua));
+ const phoneHint=!tabletHint&&(/iPhone|iPod|Android.*Mobile|Windows Phone/i.test(ua)||(navigator.userAgentData?.mobile===true&&Math.min(screen.width||innerWidth,screen.height||innerHeight)<600));
+ const shortScreen=Math.min(screen.width||innerWidth,screen.height||innerHeight);
+ const device=tabletHint?'tablet':phoneHint?'phone':coarse&&touch>0?(shortScreen<600?'phone':'tablet'):'computer';
+ const w=document.documentElement.clientWidth||innerWidth;
+ const viewport=window.visualViewport;
+ const h=Math.round(viewport&&Math.abs(viewport.scale-1)<.02?viewport.height:innerHeight);
+ const orientation=w>h?'landscape':'portrait';
+ const layout=h<540&&w>h?'landscape':w<=700?'phone':((device==='tablet'&&orientation==='portrait')||(w<900&&h>850))?'portrait-tablet':w<1080?'split':w>=1700?'wide':'laptop';
+ root.dataset.device=device;root.dataset.layout=layout;root.dataset.orientation=orientation;
+ root.dataset.input=coarse?'touch':'pointer';
+ root.dataset.motion=(device!=='computer'||navigator.connection?.saveData||(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=4))?'light':'full';
+ root.style.setProperty('--view-height',h+'px');
+ const cue=document.querySelector('.scroll-cue>span');if(cue)cue.textContent=coarse?'Swipe up to continue':'Scroll to continue';
+}
+detectExperience();
+
 const scenes=[...document.querySelectorAll('.scene')],story=document.getElementById('story'),stage=document.getElementById('stage'),progress=document.querySelector('.progress');
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));const smooth=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};
-let frame=0,current=-1,requested=0,transitioning=false;
+let frame=0,current=-1,requested=0,transitioning=false,adapting=false,adaptTimer=0,lockedChapter=0;
 function updateChapter(index){const scene=scenes[index];document.documentElement.style.setProperty('--hue',scene.dataset.hue);document.querySelector('.chapter-label').textContent=scene.dataset.label;document.querySelector('.chapter-num').textContent=String(index+1).padStart(2,'0')+' / 06';document.querySelectorAll('.chapter-track i').forEach((dot,i)=>dot.classList.toggle('active',i===index));document.querySelector('.chapter').style.opacity=index===0?0:1;}
 function settleScene(scene,visible){scene.classList.toggle('is-active',visible);scene.classList.toggle('is-current',visible);scene.style.opacity=visible?'1':'0';scene.style.transform='none';scene.style.filter='none';scene.setAttribute('aria-hidden',String(!visible));scene.inert=!visible;scene.querySelector('.art').style.transform='none';scene.querySelector('.art').style.clipPath='none';[...scene.querySelector('.copy').children].forEach(el=>{el.style.opacity='1';el.style.transform='none';el.style.filter='none'});}
 async function transitionTo(index){
@@ -92,9 +207,14 @@ await Promise.all(animations.map(animation=>animation.finished.catch(()=>{})));
 settleScene(outgoing,false);settleScene(incoming,true);animations.forEach(animation=>animation.cancel());transitioning=false;
 if(requested!==current)transitionTo(requested);
 }
-function render(){frame=0;const range=story.offsetHeight-stage.offsetHeight;const fraction=range>0?clamp((scrollY-story.offsetTop)/range):0;const maxScroll=document.documentElement.scrollHeight-innerHeight;progress.style.width=(reduced?(maxScroll>0?clamp(scrollY/maxScroll):1)*100:fraction*100)+'%';if(reduced)return;transitionTo(Math.round(fraction*(scenes.length-1)));}
+function render(){frame=0;if(adapting)return;const range=story.offsetHeight-stage.offsetHeight;const fraction=range>0?clamp((scrollY-story.offsetTop)/range):0;const maxScroll=document.documentElement.scrollHeight-innerHeight;progress.style.width=(reduced?(maxScroll>0?clamp(scrollY/maxScroll):1)*100:fraction*100)+'%';if(reduced)return;transitionTo(Math.round(fraction*(scenes.length-1)));}
 function schedule(){if(!frame)frame=requestAnimationFrame(render)}
-if(!reduced){document.documentElement.classList.add('cinematic');}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('pageshow',schedule);render();
+function adaptToViewport(){
+ if(window.visualViewport&&Math.abs(window.visualViewport.scale-1)>.02)return;
+ if(!adapting)lockedChapter=Math.max(0,requested);adapting=true;clearTimeout(adaptTimer);
+ adaptTimer=setTimeout(()=>{detectExperience();if(!reduced){const range=story.offsetHeight-stage.offsetHeight;scrollTo({top:story.offsetTop+range*lockedChapter/(scenes.length-1),behavior:'instant'});}adapting=false;render();},120);
+}
+if(!reduced){document.documentElement.classList.add('cinematic');}addEventListener('scroll',schedule,{passive:true});addEventListener('resize',adaptToViewport);addEventListener('orientationchange',adaptToViewport);window.visualViewport?.addEventListener('resize',adaptToViewport);matchMedia('(pointer: coarse)').addEventListener('change',adaptToViewport);addEventListener('pageshow',schedule);render();
 // One deliberate gesture advances one chapter; wheel inertia cannot skip ahead.
 function goToChapter(index){if(reduced||transitioning)return;index=clamp(index,0,scenes.length-1);if(index===current)return;const range=story.offsetHeight-stage.offsetHeight;scrollTo({top:story.offsetTop+range*index/(scenes.length-1),behavior:'instant'});transitionTo(index);schedule();}
 if(!reduced){
@@ -126,8 +246,8 @@ if(!reduced){
 }
 // Ambient life is independent of scroll. The reading copy remains completely still.
 if(!reduced){
- const finePointer=matchMedia('(hover: hover) and (pointer: fine)').matches;
- if(finePointer){scenes.forEach(scene=>{const art=scene.querySelector('.art'),glass=scene.querySelector('.glass');art.addEventListener('pointermove',event=>{const r=art.getBoundingClientRect();glass.style.setProperty('--tilt-x',((event.clientX-r.left)/r.width-.5)*4+'deg');glass.style.setProperty('--tilt-y',-((event.clientY-r.top)/r.height-.5)*3+'deg');},{passive:true});art.addEventListener('pointerleave',()=>{glass.style.setProperty('--tilt-x','0deg');glass.style.setProperty('--tilt-y','0deg');});});}
+ const finePointer=true;
+ if(finePointer){scenes.forEach(scene=>{const art=scene.querySelector('.art'),glass=scene.querySelector('.glass');art.addEventListener('pointermove',event=>{if(event.pointerType==='touch'||root.dataset.input==='touch')return;const r=art.getBoundingClientRect();glass.style.setProperty('--tilt-x',((event.clientX-r.left)/r.width-.5)*4+'deg');glass.style.setProperty('--tilt-y',-((event.clientY-r.top)/r.height-.5)*3+'deg');},{passive:true});art.addEventListener('pointerleave',()=>{glass.style.setProperty('--tilt-x','0deg');glass.style.setProperty('--tilt-y','0deg');});});}
  document.addEventListener('visibilitychange',()=>document.documentElement.classList.toggle('page-resting',document.hidden));
 }
 const canvas=document.getElementById('confetti'),ctx=canvas.getContext('2d');let pieces=[],confettiFrame=0,previous=0;const colors=['#cfb7ff','#dbe9b2','#f6bda4','#f6f2ed'];function sizeCanvas(){const dpr=Math.min(devicePixelRatio||1,2);canvas.width=innerWidth*dpr;canvas.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)}sizeCanvas();addEventListener('resize',sizeCanvas);
